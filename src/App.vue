@@ -25,8 +25,11 @@ export default {
   },
   mounted () {
     this.url = 'http://localhost:8081/saludo';
+    this.config = {
+      headers: {'Access-Control-Allow-Origin': '*'}
+    };
     axios
-      .get(this.url)
+      .get(this.url, this.config)
       .then(response => (this.info = response))
   }
 }
